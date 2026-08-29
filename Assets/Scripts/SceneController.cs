@@ -7,4 +7,12 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene("Ingame");
     }
+    public void OnClickRetryButton()
+    {
+        SceneManager.LoadScene("Ingame");
+    }
+    public void OnClickEndButton()
+    {
+        SceneManager.LoadScene("Title");
+    }
 }
