@@ -5,8 +5,8 @@ public class CardSpawner : MonoBehaviour
     public GameObject cardPrefab;
     public int rows = 4;
     public int cols = 7;
-    public float spacingX = 1.2f;
-    public float spacingY = 1.5f;
+    public float spacingX = 0.5f;
+    public float spacingY = 0.5f;
 
     void Start()
     {

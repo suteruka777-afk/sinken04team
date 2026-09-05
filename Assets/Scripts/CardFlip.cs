@@ -1,35 +1,48 @@
-using System;
 using UnityEngine;
 
 public class CardFlip : MonoBehaviour
 {
-    public Sprite frontSprite;  // 表面
-    public Sprite backSprite;   // 裏面
-    private SpriteRenderer sr;
+    public GameObject frontSprite;
+    public GameObject backSprite;
+
+    // カードの種類
+    public int cardID;
+
     private bool isFront = false;
 
-    void Start()
+    private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        sr.sprite = backSprite; // 初期状態は裏面
+        frontSprite.SetActive(false);
+        backSprite.SetActive(true);
     }
 
-    void OnMouseDown()
+    public void FlipCard()
     {
-        if (isFront)
-        {
-            sr.sprite = backSprite;
-            isFront = false;
-        }
-        else
-        {
-            sr.sprite = frontSprite;
-            isFront = true;
-        }
+        isFront = !isFront;
+
+        frontSprite.SetActive(isFront);
+        backSprite.SetActive(!isFront);
     }
 
-    internal void FlipBack()
+    public void OnClickCard()
     {
-        throw new NotImplementedException();
+        if (!isFront)
+        {
+            // 2枚選択済みならクリックできない
+            if (GameManager.Instance != null)
+            {
+                if (!GameManager.Instance.CanSelectCard())
+                {
+                    return;
+                }
+
+                FlipCard();
+                GameManager.Instance.SelectCard(this);
+            }
+            else
+            {
+                FlipCard();
+            }
+        }
     }
 }
