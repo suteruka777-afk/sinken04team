@@ -17,7 +17,9 @@ public class GameManager : MonoBehaviour
     {
         UpdateScoreUI();
 
-        messageText.text = "";
+        {
+            Debug.LogError("23行目で yourVariable が null になっています！");
+        }
 
         // +1表示を最初は非表示
         pointEffectText.gameObject.SetActive(false);
@@ -52,7 +54,9 @@ public class GameManager : MonoBehaviour
     // UIのポイントを更新
     void UpdateScoreUI()
     {
-        player1ScoreText.text = "★ " + player1Score + " POINT";
+        if (player1ScoreText != null)
+            player1ScoreText.text = "★ " + player1Score + " POINT";
+        if (player2ScoreText != null)
         player2ScoreText.text = "★ " + player2Score + " POINT";
     }
 }
