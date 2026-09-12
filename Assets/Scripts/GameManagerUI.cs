@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManagerUI : MonoBehaviour
 {
     // プレイヤーの得点
     private int player1Score = 0;

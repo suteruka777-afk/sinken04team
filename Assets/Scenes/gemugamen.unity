@@ -1651,9 +1651,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abb7817d48b15b41a6386c831cca871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  player1ScoreText: {fileID: 674233715}
-  player2ScoreText: {fileID: 1851073661}
-  messageText: {fileID: 1394725467}
+  player1ScoreText: {fileID: 0}
+  player2ScoreText: {fileID: 0}
+  messageText: {fileID: 0}
   pointEffectText: {fileID: 0}
 --- !u!4 &1732214825
 Transform:
