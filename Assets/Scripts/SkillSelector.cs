@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class SkillSelector : MonoBehaviour
 {
-    [SerializeField] private RectTransform[] skillImages;//スキル画像を入れる
-    [SerializeField] private RectTransform selectionFrame;//強調用のフレーム
+    [SerializeField] private Transform[] skillImages;//スキル画像を入れる
+    [SerializeField] private Transform selectionFrame;//強調用のフレーム
 
     private int currentIndex = 0;
 
@@ -15,7 +16,7 @@ public class SkillSelector : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Keyboard.current.qKey.wasPressedThisFrame)
         {
             currentIndex--;
 
@@ -25,7 +26,7 @@ public class SkillSelector : MonoBehaviour
             UpdateSelection();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             currentIndex++;
 
